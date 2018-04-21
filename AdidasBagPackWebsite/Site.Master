@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="AdidasBagPackWebsite.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
+    </title>
+    <link href="~/css/Styles.css" runat="server" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="initial-sacle=1.0" />
+    <meta charset="utf-8" />
+    <style>
+        /* Always set the map explicitly to define the size of the map*/
+        #map{
+            height:100%;
+        }
+        html, body{
+            height:100%;
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+
+<body runat="server">
+    <div id="page">
+        <div id="header">
+            <h1>
+                <asp:ContentPlaceHolder ID="heading1" runat="server"></asp:ContentPlaceHolder>
+            </h1>
+        </div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="~/Default.aspx" runat="server">Home</a></li>
+            <li><a href="~/login.aspx" runat="server">Login</a></li>
+            <li><a href="~/Register.aspx" runat="server">Register</a></li>
+            <li><a href="~/contact.aspx" runat="server">Contact Us</a></li>
+            <li><a href="~/admin/index.aspx" runat="server">Admin</a></li>
+        </ul>
+    </div>
+    
+    <div id="content">
+            <h2>
+                <asp:ContentPlaceHolder ID="heading2" runat="server"></asp:ContentPlaceHolder>
+            </h2>
+
+            <asp:ContentPlaceHolder ID="maincontent" runat="server"></asp:ContentPlaceHolder>
+    </div>
+
+    <div id="footer">
+            <p>Copyright @Adidas Online Shopping 2018</p>
+    </div>
+        </div>
+
+    <asp:ContentPlaceHolder ID="GoogleMap" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>
