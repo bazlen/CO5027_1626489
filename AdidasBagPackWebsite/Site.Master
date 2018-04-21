@@ -8,19 +8,6 @@
         <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
     </title>
     <link href="~/css/Styles.css" runat="server" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="initial-sacle=1.0" />
-    <meta charset="utf-8" />
-    <style>
-        /* Always set the map explicitly to define the size of the map*/
-        #map{
-            height:100%;
-        }
-        html, body{
-            height:100%;
-            margin:0;
-            padding:0;
-        }
-    </style>
 </head>
 
 <body runat="server">
