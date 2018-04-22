@@ -11,7 +11,7 @@
         <br />
         <asp:Image ID="CurrentImage" runat="server" Height="100px" Width="100px" />
         <br />
-        <asp:Button ID="Button1" runat="server" Text="Upload" OnClick="Button1_Click" />
+        <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="Button1_Click" />
     </form>
 
 </asp:Content>

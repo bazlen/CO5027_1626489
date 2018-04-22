@@ -11,6 +11,9 @@
     <form id="form1" runat="server">
         <p>Default page for admin</p>
         <p>
+            <asp:Button ID="btnProductSummary" runat="server" Text="Product Summary" OnClick="btnProductSummary_Click" />
+            <asp:Button ID="btnAdd" runat="server" Text="Add Product" OnClick="btnAdd_Click" />
+            <asp:Button ID="btnEdit" runat="server" Text="Edit Product" OnClick="btnEdit_Click" />
             <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
         </p>
     </form>

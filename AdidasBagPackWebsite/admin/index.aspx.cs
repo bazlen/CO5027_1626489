@@ -20,5 +20,20 @@ namespace AdidasBagPackWebsite.admin
             HttpContext.Current.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             Response.Redirect("~/Login.aspx");
         }
+
+        protected void btnProductSummary_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("List.aspx");
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Add.aspx");
+        }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Edit.aspx");
+        }
     }
 }
