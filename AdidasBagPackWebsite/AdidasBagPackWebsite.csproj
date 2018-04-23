@@ -161,6 +161,7 @@
     <Content Include="Site.Master" />
     <Content Include="packages.config" />
     <Content Include="admin\Web.config" />
+    <None Include="Properties\PublishProfiles\New.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
