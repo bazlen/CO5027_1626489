@@ -6,7 +6,7 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="heading2" runat="server">
-    Adidas BagPack
+    Adidas BagPacks
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="maincontent" runat="server">
     <div class="left-set">
