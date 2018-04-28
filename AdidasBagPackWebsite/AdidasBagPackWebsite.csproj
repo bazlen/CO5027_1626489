@@ -155,6 +155,7 @@
     <Content Include="admin\UploadImage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="image\Adidas Banner.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Product.aspx" />
     <Content Include="Register.aspx" />
