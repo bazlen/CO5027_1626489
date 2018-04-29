@@ -9,31 +9,60 @@
     Adidas BagPack
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="maincontent" runat="server">
-    <div class="left-set">
-            <img src="image/CW0627_01_standard.jpg" / width="200">
-            <img src="image/CW0629_01_standard.jpg" / width="200">
-            <img src="image/CW0630_01_standard.jpg" / width="200">
-        </div>
     
-         <div class="left-set">
-            <img src="image/CW0631_01_standard.jpg" / width="200">
-            <img src="image/CW0633_01_standard.jpg" / width="200">
-            <img src="image/CW0634_01_standard.jpg" / width="200">
-        </div>
-    <asp:Repeater ID="ProductList" runat="server" DataSourceID="SqlDataSource1">
-        <HeaderTemplate><ul></HeaderTemplate>
+    <asp:Repeater ID="ProductList" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="ProductList_ItemCommand">
+
+        <HeaderTemplate>
+            <ul>
+        </HeaderTemplate>
 
         <ItemTemplate>
-            <li>
-                <a href="<%#Eval("ProductId","Product.aspx?Id={0}") %>">
-                    <%#Eval("ProductName") %>
-                </a>
-            </li>
+            <table style="margin:0 auto">
+                <tr>
+                    <td>
+                        <a href="<%#Eval("ProductId","Product.aspx?Id={0}") %>">
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("ProductDisplayImage") %>' Width="200px" Height="200px" />
+                            <p></p>
+                            <%#Eval("ProductName") %><p>Price:$<%#Eval("ProductPrice") %></p>
+                        </a>
+                        <p></p>
+                    </td>
+                </tr>
+            </table>
         </ItemTemplate>
 
         <FooterTemplate></ul></FooterTemplate>
     </asp:Repeater>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db_1626489_co5027_asgConnectionString %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [tblProduct]">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db_1626489_co5027_asgConnectionString %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [tblProduct]" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [tblProduct] WHERE [ProductID] = @original_ProductID AND (([ProductName] = @original_ProductName) OR ([ProductName] IS NULL AND @original_ProductName IS NULL)) AND (([ProductDetails] = @original_ProductDetails) OR ([ProductDetails] IS NULL AND @original_ProductDetails IS NULL)) AND (([ProductQuantity] = @original_ProductQuantity) OR ([ProductQuantity] IS NULL AND @original_ProductQuantity IS NULL)) AND (([ProductPrice] = @original_ProductPrice) OR ([ProductPrice] IS NULL AND @original_ProductPrice IS NULL)) AND (([ProductDisplayImage] = @original_ProductDisplayImage) OR ([ProductDisplayImage] IS NULL AND @original_ProductDisplayImage IS NULL))" InsertCommand="INSERT INTO [tblProduct] ([ProductID], [ProductName], [ProductDetails], [ProductQuantity], [ProductPrice], [ProductDisplayImage]) VALUES (@ProductID, @ProductName, @ProductDetails, @ProductQuantity, @ProductPrice, @ProductDisplayImage)" UpdateCommand="UPDATE [tblProduct] SET [ProductName] = @ProductName, [ProductDetails] = @ProductDetails, [ProductQuantity] = @ProductQuantity, [ProductPrice] = @ProductPrice, [ProductDisplayImage] = @ProductDisplayImage WHERE [ProductID] = @original_ProductID AND (([ProductName] = @original_ProductName) OR ([ProductName] IS NULL AND @original_ProductName IS NULL)) AND (([ProductDetails] = @original_ProductDetails) OR ([ProductDetails] IS NULL AND @original_ProductDetails IS NULL)) AND (([ProductQuantity] = @original_ProductQuantity) OR ([ProductQuantity] IS NULL AND @original_ProductQuantity IS NULL)) AND (([ProductPrice] = @original_ProductPrice) OR ([ProductPrice] IS NULL AND @original_ProductPrice IS NULL)) AND (([ProductDisplayImage] = @original_ProductDisplayImage) OR ([ProductDisplayImage] IS NULL AND @original_ProductDisplayImage IS NULL))">
+        <DeleteParameters>
+            <asp:Parameter Name="original_ProductID" Type="Int32" />
+            <asp:Parameter Name="original_ProductName" Type="String" />
+            <asp:Parameter Name="original_ProductDetails" Type="String" />
+            <asp:Parameter Name="original_ProductQuantity" Type="Int32" />
+            <asp:Parameter Name="original_ProductPrice" Type="Decimal" />
+            <asp:Parameter Name="original_ProductDisplayImage" Type="String" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="ProductID" Type="Int32" />
+            <asp:Parameter Name="ProductName" Type="String" />
+            <asp:Parameter Name="ProductDetails" Type="String" />
+            <asp:Parameter Name="ProductQuantity" Type="Int32" />
+            <asp:Parameter Name="ProductPrice" Type="Decimal" />
+            <asp:Parameter Name="ProductDisplayImage" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="ProductName" Type="String" />
+            <asp:Parameter Name="ProductDetails" Type="String" />
+            <asp:Parameter Name="ProductQuantity" Type="Int32" />
+            <asp:Parameter Name="ProductPrice" Type="Decimal" />
+            <asp:Parameter Name="ProductDisplayImage" Type="String" />
+            <asp:Parameter Name="original_ProductID" Type="Int32" />
+            <asp:Parameter Name="original_ProductName" Type="String" />
+            <asp:Parameter Name="original_ProductDetails" Type="String" />
+            <asp:Parameter Name="original_ProductQuantity" Type="Int32" />
+            <asp:Parameter Name="original_ProductPrice" Type="Decimal" />
+            <asp:Parameter Name="original_ProductDisplayImage" Type="String" />
+        </UpdateParameters>
 </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="GoogleMap" runat="server">

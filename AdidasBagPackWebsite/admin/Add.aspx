@@ -25,6 +25,9 @@
                 ProductPrice:
                 <asp:TextBox ID="ProductPriceTextBox" runat="server" Text='<%# Bind("ProductPrice") %>' />
                 <br />
+                ProductDisplayImage:
+                <asp:TextBox ID="ProductDisplayImageTextBox" runat="server" Text='<%# Bind("ProductDisplayImage") %>' />
+                <br />
                 <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
                 &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
             </EditItemTemplate>
@@ -44,6 +47,9 @@
                 ProductPrice:
                 <asp:TextBox ID="ProductPriceTextBox" runat="server" Text='<%# Bind("ProductPrice") %>' />
                 <br />
+                ProductDisplayImage:
+                <asp:TextBox ID="ProductDisplayImageTextBox" runat="server" Text='<%# Bind("ProductDisplayImage") %>' />
+                <br />
                 <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
                 &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
             </InsertItemTemplate>
@@ -62,6 +68,9 @@
                 <br />
                 ProductPrice:
                 <asp:Label ID="ProductPriceLabel" runat="server" Text='<%# Bind("ProductPrice") %>' />
+                <br />
+                ProductDisplayImage:
+                <asp:Label ID="ProductDisplayImageLabel" runat="server" Text='<%# Bind("ProductDisplayImage") %>' />
                 <br />
                 <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
                 &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />

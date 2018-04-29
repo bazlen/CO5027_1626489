@@ -152,6 +152,14 @@
     <Content Include="admin\Edit.aspx" />
     <Content Include="admin\index.aspx" />
     <Content Include="admin\List.aspx" />
+    <Content Include="admin\ProductImages\A1.jpg" />
+    <Content Include="admin\ProductImages\A2.jpg" />
+    <Content Include="admin\ProductImages\A3.jpg" />
+    <Content Include="admin\ProductImages\A4.jpg" />
+    <Content Include="admin\ProductImages\A5.jpg" />
+    <Content Include="admin\ProductImages\A6.jpg" />
+    <Content Include="admin\ProductImages\A7.jpg" />
+    <Content Include="admin\ProductImages\A8.jpg" />
     <Content Include="admin\UploadImage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Default.aspx" />
@@ -172,12 +180,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\Styles.css" />
-    <Content Include="image\CW0627_01_standard.jpg" />
-    <Content Include="image\CW0629_01_standard.jpg" />
-    <Content Include="image\CW0630_01_standard.jpg" />
-    <Content Include="image\CW0631_01_standard.jpg" />
-    <Content Include="image\CW0633_01_standard.jpg" />
-    <Content Include="image\CW0634_01_standard.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -263,9 +265,7 @@
     </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="admin\ProductImages\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

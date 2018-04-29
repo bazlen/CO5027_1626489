@@ -125,14 +125,17 @@ id of "header" */
 }
 
 /* Always set the map explicitly to define the size of the map*/
-#map{
-    height:100%;
+#map {
+   
 }
-    html, body{
+
+#map {
     height:100%;
-    margin:0;
-    padding:0;
+    width:100%;
+    
+   
 }
+    
 
 #footer {
     padding:40px;

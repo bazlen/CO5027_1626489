@@ -13,5 +13,10 @@ namespace AdidasBagPackWebsite
         {
 
         }
+
+        protected void ProductList_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
+        }
     }
 }

@@ -25,6 +25,9 @@
             ProductPrice:
             <asp:TextBox ID="ProductPriceTextBox" runat="server" Text='<%# Bind("ProductPrice") %>' />
             <br />
+            ProductDisplayImage:
+            <asp:TextBox ID="ProductDisplayImageTextBox" runat="server" Text='<%# Bind("ProductDisplayImage") %>' />
+            <br />
             <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </EditItemTemplate>
@@ -44,10 +47,17 @@
             ProductPrice:
             <asp:TextBox ID="ProductPriceTextBox" runat="server" Text='<%# Bind("ProductPrice") %>' />
             <br />
+            ProductDisplayImage:
+            <asp:TextBox ID="ProductDisplayImageTextBox" runat="server" Text='<%# Bind("ProductDisplayImage") %>' />
+            <br />
             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </InsertItemTemplate>
         <ItemTemplate>
+            
+            <br />
+            <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("ProductDisplayImage") %>' Width="200px" Height="200px" />
+            <br />
             ProductID:
             <asp:Label ID="ProductIDLabel" runat="server" Text='<%# Eval("ProductID") %>' />
             <br />
@@ -63,40 +73,15 @@
             ProductPrice:
             <asp:Label ID="ProductPriceLabel" runat="server" Text='<%# Bind("ProductPrice") %>' />
             <br />
-            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
-            &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
-            &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+            ProductDisplayImage:
+            <asp:Label ID="ProductDisplayImageLabel" runat="server" Text='<%# Bind("ProductDisplayImage") %>' />
+            <br />
         </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:IdentityConnectionString %>" DeleteCommand="DELETE FROM [tblProduct] WHERE [ProductID] = @original_ProductID AND (([ProductName] = @original_ProductName) OR ([ProductName] IS NULL AND @original_ProductName IS NULL)) AND (([ProductDetails] = @original_ProductDetails) OR ([ProductDetails] IS NULL AND @original_ProductDetails IS NULL)) AND (([ProductQuantity] = @original_ProductQuantity) OR ([ProductQuantity] IS NULL AND @original_ProductQuantity IS NULL)) AND (([ProductPrice] = @original_ProductPrice) OR ([ProductPrice] IS NULL AND @original_ProductPrice IS NULL))" InsertCommand="INSERT INTO [tblProduct] ([ProductID], [ProductName], [ProductDetails], [ProductQuantity], [ProductPrice]) VALUES (@ProductID, @ProductName, @ProductDetails, @ProductQuantity, @ProductPrice)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [tblProduct] WHERE ([ProductID] = @ProductID)" UpdateCommand="UPDATE [tblProduct] SET [ProductName] = @ProductName, [ProductDetails] = @ProductDetails, [ProductQuantity] = @ProductQuantity, [ProductPrice] = @ProductPrice WHERE [ProductID] = @original_ProductID AND (([ProductName] = @original_ProductName) OR ([ProductName] IS NULL AND @original_ProductName IS NULL)) AND (([ProductDetails] = @original_ProductDetails) OR ([ProductDetails] IS NULL AND @original_ProductDetails IS NULL)) AND (([ProductQuantity] = @original_ProductQuantity) OR ([ProductQuantity] IS NULL AND @original_ProductQuantity IS NULL)) AND (([ProductPrice] = @original_ProductPrice) OR ([ProductPrice] IS NULL AND @original_ProductPrice IS NULL))">
-        <DeleteParameters>
-            <asp:Parameter Name="original_ProductID" Type="Int32" />
-            <asp:Parameter Name="original_ProductName" Type="String" />
-            <asp:Parameter Name="original_ProductDetails" Type="String" />
-            <asp:Parameter Name="original_ProductQuantity" Type="Int32" />
-            <asp:Parameter Name="original_ProductPrice" Type="Double" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="ProductID" Type="Int32" />
-            <asp:Parameter Name="ProductName" Type="String" />
-            <asp:Parameter Name="ProductDetails" Type="String" />
-            <asp:Parameter Name="ProductQuantity" Type="Int32" />
-            <asp:Parameter Name="ProductPrice" Type="Double" />
-        </InsertParameters>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:IdentityConnectionString %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [tblProduct] WHERE ([ProductID] = @ProductID)">
         <SelectParameters>
-            <asp:QueryStringParameter Name="ProductID" QueryStringField="id" Type="Int32" />
+            <asp:QueryStringParameter Name="ProductID" QueryStringField="Id" Type="Int32" />
         </SelectParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="ProductName" Type="String" />
-            <asp:Parameter Name="ProductDetails" Type="String" />
-            <asp:Parameter Name="ProductQuantity" Type="Int32" />
-            <asp:Parameter Name="ProductPrice" Type="Double" />
-            <asp:Parameter Name="original_ProductID" Type="Int32" />
-            <asp:Parameter Name="original_ProductName" Type="String" />
-            <asp:Parameter Name="original_ProductDetails" Type="String" />
-            <asp:Parameter Name="original_ProductQuantity" Type="Int32" />
-            <asp:Parameter Name="original_ProductPrice" Type="Double" />
-        </UpdateParameters>
     </asp:SqlDataSource>
         <asp:Label ID="Label1" runat="server" Text="Quantity"></asp:Label>
         <asp:DropDownList ID="ddlQuantity" runat="server">
