@@ -160,7 +160,6 @@
     <Content Include="admin\ProductImages\A6.jpg" />
     <Content Include="admin\ProductImages\A7.jpg" />
     <Content Include="admin\ProductImages\A8.jpg" />
-    <Content Include="admin\UploadImage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="image\Adidas Banner.jpg" />
@@ -212,13 +211,6 @@
     </Compile>
     <Compile Include="admin\List.aspx.designer.cs">
       <DependentUpon>List.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\UploadImage.aspx.cs">
-      <DependentUpon>UploadImage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\UploadImage.aspx.designer.cs">
-      <DependentUpon>UploadImage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

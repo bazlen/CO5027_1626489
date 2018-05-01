@@ -21,7 +21,7 @@ namespace AdidasBagPackWebsite
 
             //Create mail client and message with to and from address, and set message subject and body
             SmtpClient smtpClient = new SmtpClient();
-            MailMessage msg = new MailMessage("nurbazwabazlen.sapawi@gmail.com", "nurbazwabazlen.sapawi@gmail.com");
+            MailMessage msg = new MailMessage("s.nelzab@gmail.com", "s.nelzab@gmail.com");
             msg.Subject = txtSubject.Text;
             msg.Body = txtBody.Text;
 
@@ -31,7 +31,7 @@ namespace AdidasBagPackWebsite
             smtpClient.EnableSsl = true;
 
             //Create credentials - e.g. username and password for the account
-            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("nurbazwabazlen.sapawi@gmail.com", "daddygirl2105");
+            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("s.nelzab@gmail.com", "emeraldgreen");
             smtpClient.Credentials = credentials;
 
             try

@@ -48,10 +48,15 @@
                 <asp:TextBox ID="ProductPriceTextBox" runat="server" Text='<%# Bind("ProductPrice") %>' />
                 <br />
                 ProductDisplayImage:
-                <asp:TextBox ID="ProductDisplayImageTextBox" runat="server" Text='<%# Bind("ProductDisplayImage") %>' />
+                <br />
+                <asp:FileUpload ID="FileUpload1" runat="server" />
+                <br />
+                <asp:LinkButton ID="saveBtn" runat="server" OnClick="saveBtn_Click">Save Image</asp:LinkButton>
+                <br />
+                <asp:Label ID="Label1" runat="server"  Text='<%# Bind("ProductDisplayImage") %>' ></asp:Label>
                 <br />
                 <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
             </InsertItemTemplate>
             <ItemTemplate>
                 ProductID:
@@ -77,13 +82,14 @@
                 &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
             </ItemTemplate>
         </asp:FormView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:db_1626489_co5027_asgConnectionString2 %>" DeleteCommand="DELETE FROM [tblProduct] WHERE [ProductID] = @original_ProductID AND (([ProductName] = @original_ProductName) OR ([ProductName] IS NULL AND @original_ProductName IS NULL)) AND (([ProductDetails] = @original_ProductDetails) OR ([ProductDetails] IS NULL AND @original_ProductDetails IS NULL)) AND (([ProductQuantity] = @original_ProductQuantity) OR ([ProductQuantity] IS NULL AND @original_ProductQuantity IS NULL)) AND (([ProductPrice] = @original_ProductPrice) OR ([ProductPrice] IS NULL AND @original_ProductPrice IS NULL))" InsertCommand="INSERT INTO [tblProduct] ([ProductID], [ProductName], [ProductDetails], [ProductQuantity], [ProductPrice]) VALUES (@ProductID, @ProductName, @ProductDetails, @ProductQuantity, @ProductPrice)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [tblProduct]" UpdateCommand="UPDATE [tblProduct] SET [ProductName] = @ProductName, [ProductDetails] = @ProductDetails, [ProductQuantity] = @ProductQuantity, [ProductPrice] = @ProductPrice WHERE [ProductID] = @original_ProductID AND (([ProductName] = @original_ProductName) OR ([ProductName] IS NULL AND @original_ProductName IS NULL)) AND (([ProductDetails] = @original_ProductDetails) OR ([ProductDetails] IS NULL AND @original_ProductDetails IS NULL)) AND (([ProductQuantity] = @original_ProductQuantity) OR ([ProductQuantity] IS NULL AND @original_ProductQuantity IS NULL)) AND (([ProductPrice] = @original_ProductPrice) OR ([ProductPrice] IS NULL AND @original_ProductPrice IS NULL))">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:IdentityConnectionString %>" DeleteCommand="DELETE FROM [tblProduct] WHERE [ProductID] = @original_ProductID AND (([ProductName] = @original_ProductName) OR ([ProductName] IS NULL AND @original_ProductName IS NULL)) AND (([ProductDetails] = @original_ProductDetails) OR ([ProductDetails] IS NULL AND @original_ProductDetails IS NULL)) AND (([ProductQuantity] = @original_ProductQuantity) OR ([ProductQuantity] IS NULL AND @original_ProductQuantity IS NULL)) AND (([ProductPrice] = @original_ProductPrice) OR ([ProductPrice] IS NULL AND @original_ProductPrice IS NULL)) AND (([ProductDisplayImage] = @original_ProductDisplayImage) OR ([ProductDisplayImage] IS NULL AND @original_ProductDisplayImage IS NULL))" InsertCommand="INSERT INTO [tblProduct] ([ProductID], [ProductName], [ProductDetails], [ProductQuantity], [ProductPrice], [ProductDisplayImage]) VALUES (@ProductID, @ProductName, @ProductDetails, @ProductQuantity, @ProductPrice, @ProductDisplayImage)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [tblProduct] WHERE ([ProductID] = @ProductID)" UpdateCommand="UPDATE [tblProduct] SET [ProductName] = @ProductName, [ProductDetails] = @ProductDetails, [ProductQuantity] = @ProductQuantity, [ProductPrice] = @ProductPrice, [ProductDisplayImage] = @ProductDisplayImage WHERE [ProductID] = @original_ProductID AND (([ProductName] = @original_ProductName) OR ([ProductName] IS NULL AND @original_ProductName IS NULL)) AND (([ProductDetails] = @original_ProductDetails) OR ([ProductDetails] IS NULL AND @original_ProductDetails IS NULL)) AND (([ProductQuantity] = @original_ProductQuantity) OR ([ProductQuantity] IS NULL AND @original_ProductQuantity IS NULL)) AND (([ProductPrice] = @original_ProductPrice) OR ([ProductPrice] IS NULL AND @original_ProductPrice IS NULL)) AND (([ProductDisplayImage] = @original_ProductDisplayImage) OR ([ProductDisplayImage] IS NULL AND @original_ProductDisplayImage IS NULL))">
             <DeleteParameters>
                 <asp:Parameter Name="original_ProductID" Type="Int32" />
                 <asp:Parameter Name="original_ProductName" Type="String" />
                 <asp:Parameter Name="original_ProductDetails" Type="String" />
                 <asp:Parameter Name="original_ProductQuantity" Type="Int32" />
                 <asp:Parameter Name="original_ProductPrice" Type="Double" />
+                <asp:Parameter Name="original_ProductDisplayImage" Type="String" />
             </DeleteParameters>
             <InsertParameters>
                 <asp:Parameter Name="ProductID" Type="Int32" />
@@ -91,20 +97,30 @@
                 <asp:Parameter Name="ProductDetails" Type="String" />
                 <asp:Parameter Name="ProductQuantity" Type="Int32" />
                 <asp:Parameter Name="ProductPrice" Type="Double" />
+                <asp:Parameter Name="ProductDisplayImage" Type="String" />
             </InsertParameters>
+            <SelectParameters>
+                <asp:QueryStringParameter Name="ProductID" QueryStringField="Id" Type="Int32" />
+            </SelectParameters>
             <UpdateParameters>
                 <asp:Parameter Name="ProductName" Type="String" />
                 <asp:Parameter Name="ProductDetails" Type="String" />
                 <asp:Parameter Name="ProductQuantity" Type="Int32" />
                 <asp:Parameter Name="ProductPrice" Type="Double" />
+                <asp:Parameter Name="ProductDisplayImage" Type="String" />
                 <asp:Parameter Name="original_ProductID" Type="Int32" />
                 <asp:Parameter Name="original_ProductName" Type="String" />
                 <asp:Parameter Name="original_ProductDetails" Type="String" />
                 <asp:Parameter Name="original_ProductQuantity" Type="Int32" />
                 <asp:Parameter Name="original_ProductPrice" Type="Double" />
+                <asp:Parameter Name="original_ProductDisplayImage" Type="String" />
             </UpdateParameters>
         </asp:SqlDataSource>
+        <br />
+        <br />
     </form>
 </asp:Content>
+
+
 <asp:Content ID="Content5" ContentPlaceHolderID="GoogleMap" runat="server">
 </asp:Content>
