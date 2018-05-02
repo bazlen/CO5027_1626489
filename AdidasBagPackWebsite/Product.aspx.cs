@@ -20,60 +20,82 @@ namespace AdidasBagPackWebsite
 
         protected void btnPurchase_Click(object sender, EventArgs e)
         {
-            //    decimal postagePackagingCost = 3.95m;
-            //    decimal productPrice = 10.00m;
-            //    int quantityofProduct = int.Parse(ddlQuantity.SelectedValue);
-            //    decimal subTotal = (quantityofProduct * productPrice);
-            //    decimal total = subTotal + postagePackagingCost;
+                DropDownList DDLProductQty = (DropDownList)FormView1.FindControl("ddlQuantity");
+                Label productPrice = (Label)FormView1.FindControl("ProductPriceLabel");
+                decimal shippingPackagingCost = 5.00m;
+                int productPrice1;// = (int)productPrice;
+            //    int.TryParse((string))productPrice.Text,out productPrice1);
+                int quantityOfProduct = int.Parse(DDLProductQty.SelectedValue);
+            //    decimal subTotal = (quantityOfProduct * productPrice1);
+            //    decimal totalAmount = subTotal + shippingPackagingCost;
 
-            //    var config = ConfigManager.Instance.GetProperties();
-            //    var accessToken = new OAuthTokenCredential(config).GetAccessToken();
-            //    var apiContext = new APIContext(accessToken);
+                //Authenticate with Paypal
+                var config = ConfigManager.Instance.GetProperties();
+                var accessToken = new OAuthTokenCredential(config).GetAccessToken();
 
-            //    var productItem = new Item();
-            //    productItem.name = "Product 1";
-            //    productItem.currency = "BND";
-            //    productItem.price = productPrice.ToString();
-            //    productItem.sku = "PRO1";
-            //    productItem.quantity = quantityofProduct.ToString();
+                //Get APIContext Object
+                var apiContext = new APIContext(accessToken);
 
-            //    var transactionDetails = new Details();
-            //    transactionDetails.tax = "0";
-            //    transactionDetails.shipping = postagePackagingCost.ToString();
-            //    transactionDetails.subtotal = subTotal.ToString("0.00");
+                var productStock = new Item();
+                productStock.name = "Products";
+                productStock.currency = "SGD";
+          //      productStock.price = productPrice1.ToString();
+                productStock.sku = "ProductCO5027"; //SKU is stock keeping unit e.g. manufacturer code
+                productStock.quantity = quantityOfProduct.ToString();
 
-            //    var transactionAmount = new Amount();
-            //    transactionAmount.currency = "BND";
-            //    transactionAmount.total = total.ToString("0.00");
-            //    transactionAmount.details = transactionDetails;
+                var transactionDetails = new Details();
+                transactionDetails.tax = "0";
+                transactionDetails.shipping = shippingPackagingCost.ToString();
+             //   transactionDetails.subtotal = subTotal.ToString("0.00");
 
-            //    var transaction = new Transaction();
-            //    transaction.description = "Product 1 description";
-            //    transaction.invoice_number = Guid.NewGuid().ToString();
-            //    transaction.amount = transactionAmount;
-            //    transaction.item_list = new ItemList
-            //    {
-            //        items = new List<Item> { productItem }
-            //    };
+                var transactionAmount = new Amount();
+                transactionAmount.currency = "SGD";
+           //     transactionAmount.total = totalAmount.ToString("0.00");
+                transactionAmount.details = transactionDetails;
 
-            //    var payer = new Payer();
-            //    payer.payment_method = "paypal";
+                var transaction = new Transaction();
+                transaction.description = "Your order from Adidas";
+                transaction.invoice_number = Guid.NewGuid().ToString();
+                //This should ideally be the ID of a record storing the order
+                transaction.amount = transactionAmount;
+                transaction.item_list = new ItemList
+               {
+                    items = new List<Item> { productStock }
+                };
 
-            //    var redirectUrls = new RedirectUrls();
-            //    redirectUrls.cancel_url = "http://" + HttpContext.Current.Request.Url.Authority + "/Cancel.aspx";
-            //    redirectUrls.return_url = "http://" + HttpContext.Current.Request.Url.Authority + "/CompletePurchase.aspx";
+                var payer = new Payer();
+                payer.payment_method = "paypal";
 
-            //    var payment = Payment.Create(apiContext, new Payment
-            //    {
-            //        intent = "sale",
-            //        payer = payer,
-            //        transactions = new List<Transaction> { transaction },
-            //        redirect_urls = redirectUrls
-            //    });
+                var redirectUrls = new RedirectUrls();
+                string strPathAndQuery = HttpContext.Current.Request.Url.PathAndQuery;
+                string strUrl = HttpContext.Current.Request.Url.AbsoluteUri.Replace(strPathAndQuery, "/");
 
-            //    Session["paymentId"] = payment.id;
+                redirectUrls.cancel_url = strUrl + "cancel.aspx";
+                redirectUrls.return_url = strUrl + "completePurchase.aspx";
 
-            //    foreach
+               var payment = Payment.Create(apiContext, new Payment
+               {
+                   intent = "sale",
+                   payer = payer,
+                   transactions = new List<Transaction> { transaction },
+                    redirect_urls = redirectUrls
+                });
+
+               Session["paymentId"] = payment.id;
+
+               foreach (var link in payment.links)
+            {
+                if (link.rel.ToLower().Trim().Equals("approval_url"))
+                {
+                    //found the appropriate link, send the user there
+                    Response.Redirect(link.href);
+                }
+            }
+        }
+
+        protected void ddlQuantity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

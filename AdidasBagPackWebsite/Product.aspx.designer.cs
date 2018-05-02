@@ -13,13 +13,13 @@ namespace AdidasBagPackWebsite {
     public partial class Product {
         
         /// <summary>
-        /// form1 control.
+        /// ProductForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm ProductForm;
         
         /// <summary>
         /// FormView1 control.
@@ -40,13 +40,13 @@ namespace AdidasBagPackWebsite {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
-        /// Label1 control.
+        /// lblQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblQuantity;
         
         /// <summary>
         /// ddlQuantity control.

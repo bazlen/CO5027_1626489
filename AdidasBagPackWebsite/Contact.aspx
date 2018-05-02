@@ -8,15 +8,18 @@
     </asp:Content>
     <asp:Content ID="Content4" ContentPlaceHolderID="maincontent" runat="server">
         <form id="form1" runat="server">
+            <h3>Send us Emails</h3>
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
         <asp:Label ID="lblEmail" runat="server" Text="Email:"></asp:Label>
         <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
         <asp:RegularExpressionValidator ID="regEmailField" runat="server" ErrorMessage="Email is not in Valid format" ControlToValidate="txtEmail" Display="None" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
         <asp:RequiredFieldValidator ID="reqEmailField" runat="server" ErrorMessage="Please enter your email!" ControlToValidate="txtEmail" Display="None"></asp:RequiredFieldValidator>
+            <br />
         <br />
         <asp:Label ID="lblSubject" runat="server" Text="Subject:"></asp:Label>
         <asp:TextBox ID="txtSubject" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="reqSubjectField" runat="server" ErrorMessage="Please enter your Subject" ControlToValidate="txtEmail" Display="None"></asp:RequiredFieldValidator>
+            <br />
         <br />
         <asp:Label ID="lblBody" runat="server" Text="Body:"></asp:Label>
         <asp:TextBox ID="txtBody" runat="server" TextMode="MultiLine"></asp:TextBox>
@@ -33,7 +36,7 @@
 </asp:Content>
 
 <asp:Content ID="Content5" runat="server" ContentPlaceHolderID="GoogleMap">
-    <div id="map">
+<div id="map"></div>
     <script>
         var map;
         function initMap() {
@@ -70,7 +73,6 @@
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp19uaXzLmZhVGIfC4BV0qUaOaNncE6G4&callback=initMap"
-        async defer></script>
-        </div>
+    async defer></script>
 </asp:Content>
 
