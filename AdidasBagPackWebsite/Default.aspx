@@ -15,18 +15,15 @@
         </HeaderTemplate>
 
         <ItemTemplate>
-            <table style="margin:0 auto">
-                <tr>
-                    <td>
+            <div class="span4" style="display:inline-block;" runat="server">
+               <div class="products">
                         <a href="<%#Eval("ProductId","Product.aspx?Id={0}") %>">
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("ProductDisplayImage") %>' Width="200px" Height="200px" />
-                            <p></p>
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("ProductDisplayImage") %>' Width="250px" Height="200px" />
+                            <br />
                         <%#Eval("ProductName") %><p>Price:$<%#Eval("ProductPrice") %></p>
                         </a>
-                        <p></p>
-                    </td>
-                </tr>
-            </table>
+                </div>        
+            </div>
         </ItemTemplate>
 
         <FooterTemplate></ul></FooterTemplate>

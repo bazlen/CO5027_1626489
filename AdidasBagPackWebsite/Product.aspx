@@ -7,7 +7,7 @@
     Product Details
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="maincontent" runat="server">
-    <form id="ProductForm" runat="server">
+    
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="ProductID" DataSourceID="SqlDataSource1" HorizontalAlign="Center">
         <EditItemTemplate>
             ProductID:
@@ -71,6 +71,12 @@
             ProductPrice:
             <asp:Label ID="ProductPriceLabel" runat="server" Text='<%# Bind("ProductPrice") %>' />
             <br />
+             <asp:Label ID="lblQuantity" runat="server" Text="Quantity"></asp:Label>
+            <asp:DropDownList ID="ddlQuantity" runat="server" OnSelectedIndexChanged="ddlQuantity_SelectedIndexChanged">
+            <asp:ListItem Selected="True">1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
+            </asp:DropDownList>
             
         </ItemTemplate>
     </asp:FormView>
@@ -79,16 +85,11 @@
             <asp:QueryStringParameter Name="ProductID" QueryStringField="Id" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-        <asp:Label ID="lblQuantity" runat="server" Text="Quantity"></asp:Label>
-        <asp:DropDownList ID="ddlQuantity" runat="server" OnSelectedIndexChanged="ddlQuantity_SelectedIndexChanged">
-        <asp:ListItem Selected="True">1</asp:ListItem>
-        <asp:ListItem>2</asp:ListItem>
-        <asp:ListItem>3</asp:ListItem>
-        </asp:DropDownList>
+       
     <br />
     <br />
     <asp:Button ID="btnPurchase" runat="server" Text="Buy Now" OnClick="btnPurchase_Click" />
-    </form>
+
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="GoogleMap" runat="server">
 </asp:Content>

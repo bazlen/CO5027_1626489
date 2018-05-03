@@ -7,7 +7,7 @@
     <asp:Content ID="Content3" ContentPlaceHolderID="heading2" runat="server">
     </asp:Content>
     <asp:Content ID="Content4" ContentPlaceHolderID="maincontent" runat="server">
-        <form id="form1" runat="server">
+       
             <h3>Send us Emails</h3>
         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
         <asp:Label ID="lblEmail" runat="server" Text="Email:"></asp:Label>
@@ -31,12 +31,13 @@
         <br />
         <asp:Literal ID="litResult" runat="server"></asp:Literal>
         <br />
-        <br />
-    </form>
+      
+    
 </asp:Content>
 
 <asp:Content ID="Content5" runat="server" ContentPlaceHolderID="GoogleMap">
-<div id="map"></div>
+
+     <div id="map"></div>
     <script>
         var map;
         function initMap() {

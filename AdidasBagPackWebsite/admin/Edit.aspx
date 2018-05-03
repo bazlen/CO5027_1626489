@@ -74,7 +74,6 @@
             ProductPrice:
             <asp:Label ID="ProductPriceLabel" runat="server" Text='<%# Bind("ProductPrice") %>' />
             <br />
-
             ProductDisplayImage:
             <asp:Label ID="ProductDisplayImageLabel" runat="server" Text='<%# Bind("ProductDisplayImage") %>' />
             <br />

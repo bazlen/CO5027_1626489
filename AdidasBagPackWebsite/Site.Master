@@ -8,9 +8,23 @@
         <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
     </title>
     <link href="~/css/Styles.css" runat="server" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="initial-sacle=1.0" />
+    <meta charset="utf-8" />
+    <style>
+        /* Always set the map explicitly to define the size of the map*/
+        #map{
+            height:100%;
+        }
+        html, body{
+            height:100%;
+            margin:0;
+            padding:0;
+        }
+    </style>
 </head>
 
 <body runat="server">
+
     <div id="page">
         <div id="header">
             <div class="NavBar">
@@ -35,11 +49,13 @@
     </div>
     
     <div id="content">
+        <form id="form1" runat="server">
             <h2>
                 <asp:ContentPlaceHolder ID="heading2" runat="server"></asp:ContentPlaceHolder>
             </h2>
-
+         
             <asp:ContentPlaceHolder ID="maincontent" runat="server"></asp:ContentPlaceHolder>
+           </form> 
     </div>
             
     <div id="footer">
@@ -51,7 +67,8 @@
     </div>
     </div>
 
-        <asp:ContentPlaceHolder ID="GoogleMap" runat="server">
+     <asp:ContentPlaceHolder ID="GoogleMap" runat="server">
         </asp:ContentPlaceHolder>
+        
 </body>
 </html>
