@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using PayPal.Api;
+using PayPal;
 
 namespace AdidasBagPackWebsite
 {
@@ -23,7 +24,7 @@ namespace AdidasBagPackWebsite
             DropDownList ddlQuantity = (DropDownList)FormView1.FindControl("ddlQuantity");
             Label productPrice = (Label)FormView1.FindControl("ProductPriceLabel");
             Label prodID = (Label)FormView1.FindControl("ProductIDLabel");
-            decimal shippingPackagingCost = 5.00m;
+            decimal shippingPackagingCost = 3.00m;
             int productPrice1;// = (int) productPrice;
             int.TryParse((string)productPrice.Text, out productPrice1);
             int quantityOfProducts = int.Parse(ddlQuantity.SelectedValue);
@@ -31,7 +32,6 @@ namespace AdidasBagPackWebsite
             decimal totalAmount = subTotal + shippingPackagingCost;
 
             //Authenticate with PayPal
-
 
 
             var config = ConfigManager.Instance.GetProperties();
@@ -59,7 +59,7 @@ namespace AdidasBagPackWebsite
             transactionAmount.details = transactionDetails;
 
             var transaction = new Transaction();
-            transaction.description = "Your order from Faber Castell";
+            transaction.description = "Your order from Adidas Online";
             transaction.invoice_number = Guid.NewGuid().ToString(); // this should ideally be the id of a record storing the order
             transaction.amount = transactionAmount;
             transaction.item_list = new ItemList
