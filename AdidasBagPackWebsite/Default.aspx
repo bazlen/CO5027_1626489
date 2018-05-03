@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="AdidasBagPackWebsite.Default" %>
+﻿<%@ Page Title="Adidas Online BagPack" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="AdidasBagPackWebsite.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
     Adidas
 </asp:Content>

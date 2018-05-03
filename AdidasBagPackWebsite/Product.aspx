@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Product.aspx.cs" Inherits="AdidasBagPackWebsite.Product" %>
+﻿<%@ Page Title="Adidas Online BagPack" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Product.aspx.cs" Inherits="AdidasBagPackWebsite.Product" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="heading1" runat="server">
@@ -86,10 +86,11 @@
         </SelectParameters>
     </asp:SqlDataSource>
        
-    <br />
-    <br />
-    <asp:Button ID="btnPurchase" runat="server" Text="Buy Now" OnClick="btnPurchase_Click" />
+    <asp:Button ID="btnPurchase" runat="server" Text="Buy Now" OnClick="btnPurchase_Click" Height="50px" Width="141px" />
 
+    <br />
+    <br />
+    
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="GoogleMap" runat="server">
 </asp:Content>

@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html="lang">
 <head runat="server">
     <title>
         <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
@@ -70,4 +70,4 @@
         </asp:ContentPlaceHolder>
         
 </body>
-</html>
+</html=">

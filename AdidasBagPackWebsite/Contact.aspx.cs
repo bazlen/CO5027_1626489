@@ -22,6 +22,7 @@ namespace AdidasBagPackWebsite
             //Create mail client and message with to and from address, and set message subject and body
             SmtpClient smtpClient = new SmtpClient();
             MailMessage msg = new MailMessage("s.nelzab@gmail.com", "s.nelzab@gmail.com");
+            MailMessage msgToClient = new MailMessage();
             msg.Subject = txtSubject.Text;
             msg.Body = txtBody.Text;
 
