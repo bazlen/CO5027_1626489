@@ -153,6 +153,7 @@
     <Content Include="admin\index.aspx" />
     <Content Include="admin\List.aspx" />
     <Content Include="admin\ProductImages\A1.jpg" />
+    <Content Include="admin\ProductImages\A10.jpg" />
     <Content Include="admin\ProductImages\A2.jpg" />
     <Content Include="admin\ProductImages\A3.jpg" />
     <Content Include="admin\ProductImages\A4.jpg" />
@@ -160,6 +161,7 @@
     <Content Include="admin\ProductImages\A6.jpg" />
     <Content Include="admin\ProductImages\A7.jpg" />
     <Content Include="admin\ProductImages\A8.jpg" />
+    <Content Include="admin\ProductImages\A9.jpg" />
     <Content Include="Contact.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="image\Adidas Banner.jpg" />

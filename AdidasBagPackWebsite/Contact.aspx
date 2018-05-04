@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Adidas Online BagPack" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="AdidasBagPackWebsite.Contact" %>
+﻿<%@ Page Title="Adidas Sport Online BagPack" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="AdidasBagPackWebsite.Contact" %>
 
     <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
     </asp:Content>
@@ -76,4 +76,3 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp19uaXzLmZhVGIfC4BV0qUaOaNncE6G4&callback=initMap"
     async defer></script>
 </asp:Content>
-

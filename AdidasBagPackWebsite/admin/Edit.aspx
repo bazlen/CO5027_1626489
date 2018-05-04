@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="AdidasBagPackWebsite.admin.Edit" %>
+﻿<%@ Page Title="Adidas Sport Online BagPack" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="AdidasBagPackWebsite.admin.Edit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="heading1" runat="server">
@@ -7,8 +7,7 @@
     Edit
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="maincontent" runat="server">
-    <form id="form1" runat="server">
-    <asp:FormView ID="FormView1" runat="server" BackColor="#FF9999" DataKeyNames="ProductID" DataSourceID="SqlDataSource1" DefaultMode="Edit">
+    <asp:FormView ID="FormView1" runat="server" BackColor="#99FFCC" DataKeyNames="ProductID" DataSourceID="SqlDataSource1" DefaultMode="Edit" BorderColor="#999999" BorderStyle="Groove" CellPadding="35" ForeColor="Black" HorizontalAlign="Center" Width="100px">
         <EditItemTemplate>
             ProductID:
             <asp:Label ID="ProductIDLabel1" runat="server" Text='<%# Eval("ProductID") %>' />
@@ -118,7 +117,7 @@
             <asp:Parameter Name="original_ProductDisplayImage" Type="String" />
         </UpdateParameters>
         </asp:SqlDataSource>
-</form>
+    <br />
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="GoogleMap" runat="server">
 </asp:Content>

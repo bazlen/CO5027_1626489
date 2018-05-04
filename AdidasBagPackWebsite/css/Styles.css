@@ -1,5 +1,5 @@
 ﻿body {
-	background-color:#CCCCFF;
+	background-color:#A9CCE3;
 }
 
 #page{
@@ -35,8 +35,8 @@
 }
 
 #menu ul li a:hover {
-    color:#7337ae;
-    background-color:#33eeff;
+    color:#000000;
+    background-color:#FFBE33;
 }
 
 #menu ul li {
@@ -63,6 +63,7 @@
     background-color:white;
     text-align:center;
 }
+
 
 /*The style below will apply to the element with an
 id of "header" */
@@ -131,7 +132,11 @@ id of "header" */
 #footer {
     padding:40px;
     margin-top:10px;
-    color:#ffffff;
-    background-color:#000000;
+    color:#7337ae;
+    background-color:#ABB2B9  ;
     text-align:center;
+}
+
+#footer a:link {
+    color:orangered;
 }
